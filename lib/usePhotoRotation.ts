@@ -21,9 +21,9 @@ function shuffleArray(array: Photo[], seed: number): Photo[] {
 
 // Format date as DDMMYYYY
 function formatDateDDMMYYYY(date: Date): string {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const year = date.getUTCFullYear();
   return `${day}${month}${year}`;
 }
 
@@ -41,23 +41,25 @@ export function usePhotoRotation(photos: Photo[]) {
   useEffect(() => {
     if (photos.length === 0) return;
 
+    // Use UTC dates to ensure consistency worldwide
     const today = new Date();
-    const startDate = new Date('2025-06-21'); // Day 1 is June 21, 2025
+    const todayUTC = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
+    const absoluteStartDate = new Date(Date.UTC(2025, 5, 20)); // June 20, 2025 as absolute start
     
-    // Calculate days since start
-    const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+    // Calculate total days since the absolute start
+    const totalDaysSinceStart = Math.floor((todayUTC.getTime() - absoluteStartDate.getTime()) / (1000 * 60 * 60 * 24));
     
     // Calculate which 10-day cycle we're in (0-based)
-    const cycleNumber = Math.floor(daysSinceStart / 10);
+    const cycleNumber = Math.floor(totalDaysSinceStart / 10);
     
     // Calculate the day within the current cycle (0-9)
-    const dayInCycle = daysSinceStart % 10;
+    const dayInCycle = totalDaysSinceStart % 10;
     
     // Calculate the start date of the current cycle
-    const currentCycleStart = new Date(startDate);
-    currentCycleStart.setDate(currentCycleStart.getDate() + (cycleNumber * 10));
+    const currentCycleStart = new Date(absoluteStartDate);
+    currentCycleStart.setUTCDate(currentCycleStart.getUTCDate() + (cycleNumber * 10));
     
-    // Get the photos for this cycle
+    // Get the photos for this cycle (using cycle start as seed for consistency)
     const cyclePhotos = getPhotosForCycle(photos, currentCycleStart);
     
     // Set today's photo
@@ -73,16 +75,30 @@ export function usePhotoRotation(photos: Photo[]) {
     // Add entries for each day from the start of the cycle up to today
     for (let i = 0; i <= dayInCycle && i < 10; i++) {
       const logDate = new Date(currentCycleStart);
-      logDate.setDate(logDate.getDate() + i);
+      logDate.setUTCDate(logDate.getUTCDate() + i);
       const dateString = formatDateDDMMYYYY(logDate);
       
-      // Assign the photo for this day from the cycle
-      if (i < cyclePhotos.length) {
-        newPhotoLog[dateString] = {
-          filename: cyclePhotos[i].filename,
-          title: cyclePhotos[i].title,
-          details: cyclePhotos[i].details
-        };
+      // Special case: hardcode 20062025 to always show Antique Shop
+      if (dateString === '20062025') {
+        const antiqueShopPhoto = photos.find(photo => 
+          photo.title === "Antique Shop, Tehran, Iran March 2015"
+        );
+        if (antiqueShopPhoto) {
+          newPhotoLog[dateString] = {
+            filename: antiqueShopPhoto.filename,
+            title: antiqueShopPhoto.title,
+            details: antiqueShopPhoto.details
+          };
+        }
+      } else {
+        // For all other dates, use the cycle photos
+        if (i < cyclePhotos.length) {
+          newPhotoLog[dateString] = {
+            filename: cyclePhotos[i].filename,
+            title: cyclePhotos[i].title,
+            details: cyclePhotos[i].details
+          };
+        }
       }
     }
     

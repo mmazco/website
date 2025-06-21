@@ -14,11 +14,17 @@ export default function Home() {
     <div className="container">
       <header className="header">
         <p className="photographer-name">© Maryam Mazraei</p>
+        <p className="social-handle">
+          <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">
+            @mmazco
+          </a>
+        </p>
         <p className="description">
-          From my personal photography archives.<br />
+          From photography archives.<br />
           A photo a day. Photos are on<br />
           a randomised rotating basis.<br />
-          Date log tracker resets every 10 days.
+          Date log tracker resets every 10 days.<br />
+          Start date 20062025.
         </p>
         <div className="photo-log">
           {sortedDates.map(dateString => {

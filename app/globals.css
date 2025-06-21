@@ -37,6 +37,24 @@ body {
   letter-spacing: 0.02em;
 }
 
+.social-handle {
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+.social-handle a {
+  color: rgb(234, 51, 196);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-handle a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .description {
   font-size: 14px;
   font-weight: 300;
