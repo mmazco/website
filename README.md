@@ -1,4 +1,4 @@
-# Photography Daily - A Photo a Day
+# Personal Photography Archives - A Photo a Day
 
 A minimalist photography website built with Next.js and TypeScript that displays a different photo each day on a 10-day rotating cycle.
 
