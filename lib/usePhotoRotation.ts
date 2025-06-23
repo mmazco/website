@@ -31,22 +31,36 @@ function formatDateDDMMYYYY(date: Date): string {
 function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: boolean): Photo[] {
   if (isFirstCycle) {
     // Hardcode the established sequence for the first cycle
+    const antiqueShop = photos.find(p => p.title === "Antique Shop, Tehran, Iran March 2015");
+    const downtown = photos.find(p => p.title === "Downtown Tehran, Iran Jan 2017");
+    const dizi = photos.find(p => p.title === "Dizi restaurant, Tehran, Iran March 2015");
+    
+    // For day 3 (23062025), get a different photo that's not the first three
+    const otherPhotos = photos.filter(p => 
+      p.title !== "Antique Shop, Tehran, Iran March 2015" && 
+      p.title !== "Downtown Tehran, Iran Jan 2017" && 
+      p.title !== "Dizi restaurant, Tehran, Iran March 2015"
+    );
+    
+    console.log('DEBUG: Day 3 photo selection:');
+    console.log('DEBUG: Available other photos:', otherPhotos.map(p => p.title));
+    console.log('DEBUG: Selected for day 3:', otherPhotos[0]?.title);
+    console.log('DEBUG: Selected filename:', otherPhotos[0]?.filename);
+    
     const establishedPhotos = [
       // Day 0 (20062025): Antique Shop
-      photos.find(p => p.title === "Antique Shop, Tehran, Iran March 2015"),
+      antiqueShop,
       // Day 1 (21062025): Downtown Tehran
-      photos.find(p => p.title === "Downtown Tehran, Iran Jan 2017"),
+      downtown,
       // Day 2 (22062025): Dizi restaurant
-      photos.find(p => p.title === "Dizi restaurant, Tehran, Iran March 2015"),
-      // Day 3 (23062025): Get a different photo (not Antique Shop)
-      photos.find(p => p.title !== "Antique Shop, Tehran, Iran March 2015" && 
-                      p.title !== "Downtown Tehran, Iran Jan 2017" && 
-                      p.title !== "Dizi restaurant, Tehran, Iran March 2015"),
+      dizi,
+      // Day 3 (23062025): First available other photo
+      otherPhotos[0],
       // Fill remaining days with other photos
-      ...photos.filter(p => p.title !== "Antique Shop, Tehran, Iran March 2015" && 
-                           p.title !== "Downtown Tehran, Iran Jan 2017" && 
-                           p.title !== "Dizi restaurant, Tehran, Iran March 2015").slice(1)
+      ...otherPhotos.slice(1)
     ].filter(Boolean) as Photo[];
+    
+    console.log('DEBUG: Full established cycle:', establishedPhotos.map(p => p.title));
     
     return establishedPhotos.slice(0, 10);
   } else {
@@ -72,11 +86,18 @@ export function usePhotoRotation(photos: Photo[]) {
     // Calculate total days since the absolute start
     const totalDaysSinceStart = Math.floor((todayUTC.getTime() - absoluteStartDate.getTime()) / (1000 * 60 * 60 * 24));
     
+    console.log('DEBUG: Today UTC:', todayUTC.toISOString());
+    console.log('DEBUG: Total days since start:', totalDaysSinceStart);
+    console.log('DEBUG: Date formatted:', formatDateDDMMYYYY(todayUTC));
+    
     // Calculate which 10-day cycle we're in (0-based)
     const cycleNumber = Math.floor(totalDaysSinceStart / 10);
     
     // Calculate the day within the current cycle (0-9)
     const dayInCycle = totalDaysSinceStart % 10;
+    
+    console.log('DEBUG: Cycle number:', cycleNumber);
+    console.log('DEBUG: Day in cycle:', dayInCycle);
     
     // Calculate the start date of the current cycle
     const currentCycleStart = new Date(absoluteStartDate);
@@ -85,8 +106,13 @@ export function usePhotoRotation(photos: Photo[]) {
     // Check if this is the first cycle (cycle 0)
     const isFirstCycle = cycleNumber === 0;
     
+    console.log('DEBUG: Is first cycle:', isFirstCycle);
+    
     // Get the photos for this cycle
     const cyclePhotos = getPhotosForCycle(photos, currentCycleStart, isFirstCycle);
+    
+    console.log('DEBUG: Today should show:', cyclePhotos[dayInCycle]?.title);
+    console.log('DEBUG: Today should show filename:', cyclePhotos[dayInCycle]?.filename);
     
     // Set today's photo
     if (dayInCycle >= 0 && dayInCycle < cyclePhotos.length) {
@@ -113,6 +139,8 @@ export function usePhotoRotation(photos: Photo[]) {
         };
       }
     }
+    
+    console.log('DEBUG: Photo log:', newPhotoLog);
     
     setPhotoLog(newPhotoLog);
   }, [photos]);
