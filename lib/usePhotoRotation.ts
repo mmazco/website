@@ -35,17 +35,21 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
     const downtown = photos.find(p => p.title === "Downtown Tehran, Iran Jan 2017");
     const dizi = photos.find(p => p.title === "Dizi restaurant, Tehran, Iran March 2015");
     
+    // For day 3 (23062025), assign Tajrish which we know works
+    const tajrish = photos.find(p => p.title === "Tajrish, Tehran, Iran Jan 2017");
+    
     // For day 3 (23062025), get a different photo that's not the first three
     const otherPhotos = photos.filter(p => 
       p.title !== "Antique Shop, Tehran, Iran March 2015" && 
       p.title !== "Downtown Tehran, Iran Jan 2017" && 
-      p.title !== "Dizi restaurant, Tehran, Iran March 2015"
+      p.title !== "Dizi restaurant, Tehran, Iran March 2015" &&
+      p.title !== "Tajrish, Tehran, Iran Jan 2017"
     );
     
     console.log('DEBUG: Day 3 photo selection:');
     console.log('DEBUG: Available other photos:', otherPhotos.map(p => p.title));
-    console.log('DEBUG: Selected for day 3:', otherPhotos[0]?.title);
-    console.log('DEBUG: Selected filename:', otherPhotos[0]?.filename);
+    console.log('DEBUG: Selected for day 3:', tajrish?.title);
+    console.log('DEBUG: Selected filename:', tajrish?.filename);
     
     const establishedPhotos = [
       // Day 0 (20062025): Antique Shop
@@ -54,10 +58,10 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
       downtown,
       // Day 2 (22062025): Dizi restaurant
       dizi,
-      // Day 3 (23062025): First available other photo
-      otherPhotos[0],
+      // Day 3 (23062025): Tajrish (known working image)
+      tajrish,
       // Fill remaining days with other photos
-      ...otherPhotos.slice(1)
+      ...otherPhotos
     ].filter(Boolean) as Photo[];
     
     console.log('DEBUG: Full established cycle:', establishedPhotos.map(p => p.title));
