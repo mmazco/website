@@ -8,9 +8,9 @@ export const photoData: PhotoData = {
       details: "Canon T50, Lomography Colour Negative film, ISO 400 35mm"
     },
     {
-      filename: "/images/Tochal Ski Resort, Tehran, Iran Dec 2016 .jpg",
+      filename: "/images/Tochal Ski Resort (1), Tehran, Iran Dec 2016.jpg",
       title: "Tochal Ski Resort, Tehran, Iran Dec 2016",
-      details: "Film photography"
+      details: "Taken on iPhone"
     },
     {
       filename: "/images/Tajrish, Tehran, Iran Jan 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm.JPG",
@@ -28,7 +28,7 @@ export const photoData: PhotoData = {
       details: "Canon T50, Lomography Colour Negative film, ISO 400 35mm"
     },
     {
-      filename: "/images/Tochal Ski Resort, Tehran, Iran Dec 2016.jpg",
+      filename: "/images/Tochal Ski Resort (2), Tehran, Iran Dec 2016.jpg",
       title: "Tochal Ski Resort, Tehran, Iran Dec 2016",
       details: "Film photography"
     },
