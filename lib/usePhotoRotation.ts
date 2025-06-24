@@ -38,18 +38,24 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
     // For day 3 (23062025), assign Tajrish which we know works
     const tajrish = photos.find(p => p.title === "Tajrish, Tehran, Iran Jan 2017");
     
-    // For day 3 (23062025), get a different photo that's not the first three
+    // For day 4 (24062025), assign another known working photo
+    const saboosMarch = photos.find(p => p.title === "Saboos Cafe Bakery, Tehran, Iran March 2015");
+    
+    // Get other photos excluding established ones and problematic Tochal images
     const otherPhotos = photos.filter(p => 
       p.title !== "Antique Shop, Tehran, Iran March 2015" && 
       p.title !== "Downtown Tehran, Iran Jan 2017" && 
       p.title !== "Dizi restaurant, Tehran, Iran March 2015" &&
-      p.title !== "Tajrish, Tehran, Iran Jan 2017"
+      p.title !== "Tajrish, Tehran, Iran Jan 2017" &&
+      p.title !== "Saboos Cafe Bakery, Tehran, Iran March 2015" &&
+      !p.title.includes("Tochal Ski Resort") // Exclude problematic Tochal images
     );
     
     console.log('DEBUG: Day 3 photo selection:');
     console.log('DEBUG: Available other photos:', otherPhotos.map(p => p.title));
     console.log('DEBUG: Selected for day 3:', tajrish?.title);
-    console.log('DEBUG: Selected filename:', tajrish?.filename);
+    console.log('DEBUG: Selected for day 4:', saboosMarch?.title);
+    console.log('DEBUG: Selected filename for day 4:', saboosMarch?.filename);
     
     const establishedPhotos = [
       // Day 0 (20062025): Antique Shop
@@ -60,6 +66,8 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
       dizi,
       // Day 3 (23062025): Tajrish (known working image)
       tajrish,
+      // Day 4 (24062025): Saboos March (known working image)
+      saboosMarch,
       // Fill remaining days with other photos
       ...otherPhotos
     ].filter(Boolean) as Photo[];
