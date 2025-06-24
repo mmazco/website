@@ -41,21 +41,28 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
     // For day 4 (24062025), assign another known working photo
     const saboosMarch = photos.find(p => p.title === "Saboos Cafe Bakery, Tehran, Iran March 2015");
     
-    // Get other photos excluding established ones and problematic Tochal images
+    // For day 5 (25062025), test with one Tochal image
+    const tochalTest = photos.find(p => p.filename === "/images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg");
+    
+    // Get other photos excluding established ones and the test Tochal image
     const otherPhotos = photos.filter(p => 
       p.title !== "Antique Shop, Tehran, Iran March 2015" && 
       p.title !== "Downtown Tehran, Iran Jan 2017" && 
       p.title !== "Dizi restaurant, Tehran, Iran March 2015" &&
       p.title !== "Tajrish, Tehran, Iran Jan 2017" &&
       p.title !== "Saboos Cafe Bakery, Tehran, Iran March 2015" &&
-      !p.title.includes("Tochal Ski Resort") // Exclude problematic Tochal images
+      p.filename !== "/images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg" &&
+      !p.filename?.includes("Tochal Ski Resort 1") // Exclude the other Tochal image for now
     );
     
     console.log('DEBUG: Day 3 photo selection:');
     console.log('DEBUG: Available other photos:', otherPhotos.map(p => p.title));
     console.log('DEBUG: Selected for day 3:', tajrish?.title);
     console.log('DEBUG: Selected for day 4:', saboosMarch?.title);
-    console.log('DEBUG: Selected filename for day 4:', saboosMarch?.filename);
+    console.log('DEBUG: Selected for day 5 (Tochal test):', tochalTest?.title);
+    console.log('DEBUG: Tochal test filename:', tochalTest?.filename);
+    console.log('DEBUG: Tochal test filename length:', tochalTest?.filename?.length);
+    console.log('DEBUG: Tochal test filename encoded:', encodeURIComponent(tochalTest?.filename || ''));
     
     const establishedPhotos = [
       // Day 0 (20062025): Antique Shop
@@ -68,6 +75,8 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
       tajrish,
       // Day 4 (24062025): Saboos March (known working image)
       saboosMarch,
+      // Day 5 (25062025): Tochal test image
+      tochalTest,
       // Fill remaining days with other photos
       ...otherPhotos
     ].filter(Boolean) as Photo[];
