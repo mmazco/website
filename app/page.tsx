@@ -71,12 +71,6 @@ export default function Home() {
           </>
         )}
       </main>
-      
-      <div className="social-media">
-        <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">
-          @mmazco
-        </a>
-      </div>
     </div>
   );
 } 
