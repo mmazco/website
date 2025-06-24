@@ -44,31 +44,6 @@ export default function Home() {
             );
           })}
         </div>
-
-        {/* Temporary debug section for Tochal image testing */}
-        <div style={{ 
-          position: 'fixed', 
-          top: '10px', 
-          right: '10px', 
-          background: 'rgba(0,0,0,0.8)', 
-          color: 'white', 
-          padding: '10px',
-          fontSize: '12px',
-          maxWidth: '300px',
-          zIndex: 1000
-        }}>
-          <div>Debug: Tochal Image Test</div>
-          <img 
-            src="/images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg"
-            alt="Tochal Test"
-            style={{ width: '100px', height: 'auto', marginTop: '5px' }}
-            onLoad={() => console.log('DEBUG: Tochal image loaded successfully')}
-            onError={(e) => console.log('DEBUG: Tochal image failed to load:', e)}
-          />
-          <div style={{ marginTop: '5px', wordBreak: 'break-all' }}>
-            Path: /images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg
-          </div>
-        </div>
       </header>
       
       <main className="main">

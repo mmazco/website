@@ -41,28 +41,14 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
     // For day 4 (24062025), assign another known working photo
     const saboosMarch = photos.find(p => p.title === "Saboos Cafe Bakery, Tehran, Iran March 2015");
     
-    // For day 5 (25062025), test with one Tochal image
-    const tochalTest = photos.find(p => p.filename === "/images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg");
-    
-    // Get other photos excluding established ones and the test Tochal image
+    // Get other photos excluding only the established ones (Tochal images now included)
     const otherPhotos = photos.filter(p => 
       p.title !== "Antique Shop, Tehran, Iran March 2015" && 
       p.title !== "Downtown Tehran, Iran Jan 2017" && 
       p.title !== "Dizi restaurant, Tehran, Iran March 2015" &&
       p.title !== "Tajrish, Tehran, Iran Jan 2017" &&
-      p.title !== "Saboos Cafe Bakery, Tehran, Iran March 2015" &&
-      p.filename !== "/images/Tochal Ski Resort 2, Tehran, Iran Dec 2016.jpg" &&
-      !p.filename?.includes("Tochal Ski Resort 1") // Exclude the other Tochal image for now
+      p.title !== "Saboos Cafe Bakery, Tehran, Iran March 2015"
     );
-    
-    console.log('DEBUG: Day 3 photo selection:');
-    console.log('DEBUG: Available other photos:', otherPhotos.map(p => p.title));
-    console.log('DEBUG: Selected for day 3:', tajrish?.title);
-    console.log('DEBUG: Selected for day 4:', saboosMarch?.title);
-    console.log('DEBUG: Selected for day 5 (Tochal test):', tochalTest?.title);
-    console.log('DEBUG: Tochal test filename:', tochalTest?.filename);
-    console.log('DEBUG: Tochal test filename length:', tochalTest?.filename?.length);
-    console.log('DEBUG: Tochal test filename encoded:', encodeURIComponent(tochalTest?.filename || ''));
     
     const establishedPhotos = [
       // Day 0 (20062025): Antique Shop
@@ -75,13 +61,9 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
       tajrish,
       // Day 4 (24062025): Saboos March (known working image)
       saboosMarch,
-      // Day 5 (25062025): Tochal test image
-      tochalTest,
-      // Fill remaining days with other photos
+      // Fill remaining days with other photos (including Tochal images)
       ...otherPhotos
     ].filter(Boolean) as Photo[];
-    
-    console.log('DEBUG: Full established cycle:', establishedPhotos.map(p => p.title));
     
     return establishedPhotos.slice(0, 10);
   } else {
@@ -107,18 +89,11 @@ export function usePhotoRotation(photos: Photo[]) {
     // Calculate total days since the absolute start
     const totalDaysSinceStart = Math.floor((todayUTC.getTime() - absoluteStartDate.getTime()) / (1000 * 60 * 60 * 24));
     
-    console.log('DEBUG: Today UTC:', todayUTC.toISOString());
-    console.log('DEBUG: Total days since start:', totalDaysSinceStart);
-    console.log('DEBUG: Date formatted:', formatDateDDMMYYYY(todayUTC));
-    
     // Calculate which 10-day cycle we're in (0-based)
     const cycleNumber = Math.floor(totalDaysSinceStart / 10);
     
     // Calculate the day within the current cycle (0-9)
     const dayInCycle = totalDaysSinceStart % 10;
-    
-    console.log('DEBUG: Cycle number:', cycleNumber);
-    console.log('DEBUG: Day in cycle:', dayInCycle);
     
     // Calculate the start date of the current cycle
     const currentCycleStart = new Date(absoluteStartDate);
@@ -127,13 +102,8 @@ export function usePhotoRotation(photos: Photo[]) {
     // Check if this is the first cycle (cycle 0)
     const isFirstCycle = cycleNumber === 0;
     
-    console.log('DEBUG: Is first cycle:', isFirstCycle);
-    
     // Get the photos for this cycle
     const cyclePhotos = getPhotosForCycle(photos, currentCycleStart, isFirstCycle);
-    
-    console.log('DEBUG: Today should show:', cyclePhotos[dayInCycle]?.title);
-    console.log('DEBUG: Today should show filename:', cyclePhotos[dayInCycle]?.filename);
     
     // Set today's photo
     if (dayInCycle >= 0 && dayInCycle < cyclePhotos.length) {
@@ -160,8 +130,6 @@ export function usePhotoRotation(photos: Photo[]) {
         };
       }
     }
-    
-    console.log('DEBUG: Photo log:', newPhotoLog);
     
     setPhotoLog(newPhotoLog);
   }, [photos]);
