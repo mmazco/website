@@ -7,8 +7,18 @@ import { usePhotoRotation } from '@/lib/usePhotoRotation';
 export default function Home() {
   const { currentPhoto, photoLog, displayPhotoFromLog } = usePhotoRotation(photoData.photos);
 
-  // Sort dates in chronological order
-  const sortedDates = Object.keys(photoLog).sort();
+  // Sort dates in chronological order by parsing DDMMYYYY format
+  const sortedDates = Object.keys(photoLog).sort((a, b) => {
+    // Parse DDMMYYYY format
+    const parseDate = (dateStr: string) => {
+      const day = parseInt(dateStr.substring(0, 2));
+      const month = parseInt(dateStr.substring(2, 4)) - 1; // Month is 0-indexed
+      const year = parseInt(dateStr.substring(4, 8));
+      return new Date(year, month, day);
+    };
+    
+    return parseDate(a).getTime() - parseDate(b).getTime();
+  });
 
   return (
     <div className="container">
