@@ -28,20 +28,16 @@ function formatDateDDMMYYYY(date: Date): string {
 }
 
 // Get photos for a 10-day cycle starting from a specific date
-function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: boolean): Photo[] {
-  if (isFirstCycle) {
+function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, cycleNumber: number): Photo[] {
+  if (cycleNumber === 0) {
     // Hardcode the established sequence for the first cycle
     const antiqueShop = photos.find(p => p.title === "Antique Shop, Tehran, Iran March 2015");
     const downtown = photos.find(p => p.title === "Downtown Tehran, Iran Jan 2017");
     const dizi = photos.find(p => p.title === "Dizi restaurant, Tehran, Iran March 2015");
-    
-    // For day 3 (23062025), assign Tajrish which we know works
     const tajrish = photos.find(p => p.title === "Tajrish, Tehran, Iran Jan 2017");
-    
-    // For day 4 (24062025), assign another known working photo
     const saboosMarch = photos.find(p => p.title === "Saboos Cafe Bakery, Tehran, Iran March 2015");
     
-    // Get other photos excluding only the established ones (Tochal images now included)
+    // Get other photos excluding the established ones
     const otherPhotos = photos.filter(p => 
       p.title !== "Antique Shop, Tehran, Iran March 2015" && 
       p.title !== "Downtown Tehran, Iran Jan 2017" && 
@@ -51,26 +47,28 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, isFirstCycle: 
     );
     
     const establishedPhotos = [
-      // Day 0 (20062025): Antique Shop
-      antiqueShop,
-      // Day 1 (21062025): Downtown Tehran
-      downtown,
-      // Day 2 (22062025): Dizi restaurant
-      dizi,
-      // Day 3 (23062025): Tajrish (known working image)
-      tajrish,
-      // Day 4 (24062025): Saboos March (known working image)
-      saboosMarch,
-      // Fill remaining days with other photos (including Tochal images)
+      antiqueShop, downtown, dizi, tajrish, saboosMarch,
       ...otherPhotos
     ].filter(Boolean) as Photo[];
     
     return establishedPhotos.slice(0, 10);
   } else {
-    // Use normal seeded random for subsequent cycles
-    const seed = cycleStartDate.getTime() / 1000000;
+    // For subsequent cycles, exclude photos used in previous cycles
+    // Calculate how many photos have been used in all previous cycles
+    const photosUsedInPreviousCycles = Math.min(cycleNumber * 10, photos.length);
+    
+    // Create a deterministic but different ordering for each cycle
+    const seed = cycleNumber * 1000 + cycleStartDate.getTime() / 1000000;
     const shuffledPhotos = shuffleArray(photos, seed);
-    return shuffledPhotos.slice(0, Math.min(10, shuffledPhotos.length));
+    
+    // Take photos starting from where the previous cycle left off
+    const availablePhotos = [];
+    for (let i = 0; i < 10 && availablePhotos.length < 10; i++) {
+      const photoIndex = (photosUsedInPreviousCycles + i) % photos.length;
+      availablePhotos.push(shuffledPhotos[photoIndex]);
+    }
+    
+    return availablePhotos;
   }
 }
 
@@ -99,11 +97,8 @@ export function usePhotoRotation(photos: Photo[]) {
     const currentCycleStart = new Date(absoluteStartDate);
     currentCycleStart.setUTCDate(currentCycleStart.getUTCDate() + (cycleNumber * 10));
     
-    // Check if this is the first cycle (cycle 0)
-    const isFirstCycle = cycleNumber === 0;
-    
     // Get the photos for this cycle
-    const cyclePhotos = getPhotosForCycle(photos, currentCycleStart, isFirstCycle);
+    const cyclePhotos = getPhotosForCycle(photos, currentCycleStart, cycleNumber);
     
     // Set today's photo
     if (dayInCycle >= 0 && dayInCycle < cyclePhotos.length) {
