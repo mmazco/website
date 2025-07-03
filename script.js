@@ -209,3 +209,4 @@ function scheduleNextPhoto() {
 
 // Start the midnight reload schedule
 scheduleNextPhoto(); /* Cache cleared Fri Jun 20 17:11:41 PDT 2025 */
+ 

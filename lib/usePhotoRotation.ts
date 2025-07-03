@@ -52,6 +52,48 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, cycleNumber: n
     ].filter(Boolean) as Photo[];
     
     return establishedPhotos.slice(0, 10);
+  } else if (cycleNumber === 1) {
+    // Comprehensive list of ALL 10 photos used in cycle 0 (to exclude completely)
+    const cycle0UsedPhotos = [
+      "Antique Shop, Tehran, Iran March 2015",
+      "Dizi restaurant, Tehran, Iran March 2015", 
+      "Tajrish, Tehran, Iran Jan 2017",
+      "Saboos Cafe Bakery, Tehran, Iran March 2015",
+      "Downtown Tehran (1), Iran Jan 2017",
+      "Tochal Ski Resort, Tehran, Iran Dec 2016", // First Tochal
+      "Untitled March 2015"
+    ];
+    
+    // Get ONLY photos that were NOT used in cycle 0
+    const availableForCycle1 = photos.filter(p => {
+      // Exclude exact title matches
+      if (cycle0UsedPhotos.includes(p.title)) return false;
+      
+      // Special cases for partial matches
+      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400") return false; // Position 8 in cycle 0
+      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400 35mm") return false; // Position 9 in cycle 0
+      if (p.title.includes("Tochal Ski Resort") && p.details === "Taken on iPhone") return false; // Both Tochals used
+      
+      return true;
+    });
+    
+    // Select photos from the truly unused ones only
+    const downtownTehran1 = photos.find(p => p.title === "Downtown Tehran (1), Iran Jan 2017"); // Keep for 30062025
+    const niavaranTehran = photos.find(p => p.title === "Niavaran, Tehran, Iran May 2017"); // New for 01072025
+    const meydoonAzadi = availableForCycle1.find(p => p.title === "Meydoon Azadi, Freedom Square, Tehran, Iran April 2015"); // Keep for 02072025
+    const parisDec2017 = photos.find(p => p.title === "Paris Dec 2017"); // New for 03072025
+    
+    const establishedPhotos = [
+      downtownTehran1, niavaranTehran, meydoonAzadi, parisDec2017,
+      ...availableForCycle1.filter(p => 
+        p.title !== "Downtown Tehran (2), Iran Jan 2017" &&
+        p.title !== "Meydoon Azadi, Freedom Square, Tehran, Iran April 2015" &&
+        p.title !== "Niavaran, Tehran, Iran May 2017" &&
+        p.title !== "Paris Dec 2017"
+      )
+    ].filter(Boolean) as Photo[];
+    
+    return establishedPhotos.slice(0, 10);
   } else {
     // For subsequent cycles, exclude photos used in previous cycles
     // Calculate how many photos have been used in all previous cycles

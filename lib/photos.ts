@@ -3,8 +3,8 @@ import { PhotoData } from '@/types';
 export const photoData: PhotoData = {
   photos: [
     {
-      filename: "/images/Downtown Tehran, Iran Jan 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm .JPG",
-      title: "Downtown Tehran, Iran Jan 2017",
+      filename: "/images/Downtown Tehran (1), Iran Jan 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm.JPG",
+      title: "Downtown Tehran (1), Iran Jan 2017",
       details: "Canon T50, Lomography Colour Negative film, ISO 400 35mm"
     },
     {
@@ -63,9 +63,19 @@ export const photoData: PhotoData = {
       details: "Canon T50, BW Lady Grey Negative film with ISO 400"
     },
     {
-      filename: "/images/Downtown Tehran, Iran Jan 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm.JPG",
-      title: "Downtown Tehran, Iran Jan 2017",
+      filename: "/images/Downtown Tehran (2), Iran Jan 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm .JPG",
+      title: "Downtown Tehran (2), Iran Jan 2017",
       details: "Canon T50, Lomography Colour Negative film, ISO 400 35mm"
+    },
+    {
+      filename: "/images/Niavaran, Tehran, Iran May 2017 Canon T50, Lomography Colour Negative film, ISO 400 35mm.jpg",
+      title: "Niavaran, Tehran, Iran May 2017",
+      details: "Canon T50, Lomography Colour Negative film, ISO 400 35mm"
+    },
+    {
+      filename: "/images/Paris Dec 2017 Canon T50, BW Lady Grey Negative film with ISO 400.PNG",
+      title: "Paris Dec 2017",
+      details: "Canon T50, BW Lady Grey Negative film with ISO 400"
     }
   ]
 }; 
