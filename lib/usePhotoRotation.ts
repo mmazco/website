@@ -53,15 +53,18 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, cycleNumber: n
     
     return establishedPhotos.slice(0, 10);
   } else if (cycleNumber === 1) {
-    // Comprehensive list of ALL 10 photos used in cycle 0 (to exclude completely)
+    // Correct list of photos actually used in cycle 0 (to exclude completely)
     const cycle0UsedPhotos = [
       "Antique Shop, Tehran, Iran March 2015",
+      "Downtown Tehran, Iran Jan 2017", // This was position 2 in cycle 0 (NOT the (1) or (2) versions)
       "Dizi restaurant, Tehran, Iran March 2015", 
       "Tajrish, Tehran, Iran Jan 2017",
       "Saboos Cafe Bakery, Tehran, Iran March 2015",
-      "Downtown Tehran (1), Iran Jan 2017",
-      "Tochal Ski Resort, Tehran, Iran Dec 2016", // First Tochal
-      "Untitled March 2015"
+      "Tochal Ski Resort, Tehran, Iran Dec 2016", // First Tochal was used
+      "Untitled March 2015",
+      "Saboos Cafe Bakery, Tehran, Iran May 2015",
+      "Meydoon Azadi, Freedom Square, Tehran, Iran April 2015",
+      "Downtown Tehran (2), Iran Jan 2017" // This was also used in cycle 0
     ];
     
     // Get ONLY photos that were NOT used in cycle 0
@@ -69,48 +72,67 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, cycleNumber: n
       // Exclude exact title matches
       if (cycle0UsedPhotos.includes(p.title)) return false;
       
-      // Special cases for partial matches
-      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400") return false; // Position 8 in cycle 0
-      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400 35mm") return false; // Position 9 in cycle 0
+      // Special cases for partial matches that were used in cycle 0
+      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400") return false;
+      if (p.title === "Tehran, Iran Jan 2017" && p.details === "Canon T50, Lomography Colour Negative film, ISO 400 35mm") return false;
       if (p.title.includes("Tochal Ski Resort") && p.details === "Taken on iPhone") return false; // Both Tochals used
       
       return true;
     });
     
-    // Select photos from the truly unused ones only
-    const downtownTehran1 = photos.find(p => p.title === "Downtown Tehran (1), Iran Jan 2017"); // Keep for 30062025
-    const niavaranTehran = photos.find(p => p.title === "Niavaran, Tehran, Iran May 2017"); // New for 01072025
-    const meydoonAzadi = availableForCycle1.find(p => p.title === "Meydoon Azadi, Freedom Square, Tehran, Iran April 2015"); // Keep for 02072025
-    const parisDec2017 = photos.find(p => p.title === "Paris Dec 2017"); // New for 03072025
+    // Hardcoded sequence for Cycle 1 - using photos that were NOT in cycle 0
+    const downtownTehran1 = photos.find(p => p.title === "Downtown Tehran (1), Iran Jan 2017");
+    const niavaranTehran = photos.find(p => p.title === "Niavaran, Tehran, Iran May 2017");
+    const tehranApril2017 = photos.find(p => p.title === "Tehran, Iran April 2017");
+    const parisDec2017 = photos.find(p => p.title === "Paris Dec 2017");
+    const sardinia1 = photos.find(p => p.title === "Sardinia June 2016" && p.filename.includes("98290009"));
+    
+    // Get remaining photos for positions 6-10
+    const remainingPhotos = availableForCycle1.filter(p => 
+      p.title !== "Downtown Tehran (1), Iran Jan 2017" &&
+      p.title !== "Niavaran, Tehran, Iran May 2017" &&
+      p.title !== "Tehran, Iran April 2017" &&
+      p.title !== "Paris Dec 2017" &&
+      !(p.title === "Sardinia June 2016" && p.filename.includes("98290009"))
+    );
     
     const establishedPhotos = [
-      downtownTehran1, niavaranTehran, meydoonAzadi, parisDec2017,
-      ...availableForCycle1.filter(p => 
-        p.title !== "Downtown Tehran (2), Iran Jan 2017" &&
-        p.title !== "Meydoon Azadi, Freedom Square, Tehran, Iran April 2015" &&
-        p.title !== "Niavaran, Tehran, Iran May 2017" &&
-        p.title !== "Paris Dec 2017"
-      )
+      downtownTehran1, niavaranTehran, tehranApril2017, parisDec2017, sardinia1,
+      ...remainingPhotos
     ].filter(Boolean) as Photo[];
+    
+    // If we don't have enough photos, fill with shuffled photos from available ones
+    if (establishedPhotos.length < 10) {
+      const seed = cycleNumber * 1000 + cycleStartDate.getTime() / 1000000;
+      const shuffledAvailablePhotos = shuffleArray(availableForCycle1, seed);
+      
+      // Add photos until we reach 10, avoiding immediate duplicates within the same cycle
+      const usedTitlesInCycle = new Set(establishedPhotos.map(p => p.title));
+      
+      for (const photo of shuffledAvailablePhotos) {
+        if (establishedPhotos.length >= 10) break;
+        if (!usedTitlesInCycle.has(photo.title)) {
+          establishedPhotos.push(photo);
+          usedTitlesInCycle.add(photo.title);
+        }
+      }
+    }
     
     return establishedPhotos.slice(0, 10);
   } else {
-    // For subsequent cycles, exclude photos used in previous cycles
-    // Calculate how many photos have been used in all previous cycles
-    const photosUsedInPreviousCycles = Math.min(cycleNumber * 10, photos.length);
-    
-    // Create a deterministic but different ordering for each cycle
+    // For subsequent cycles, use all photos in a shuffled order
+    // This ensures continuous rotation even with limited photo sets
     const seed = cycleNumber * 1000 + cycleStartDate.getTime() / 1000000;
     const shuffledPhotos = shuffleArray(photos, seed);
     
-    // Take photos starting from where the previous cycle left off
-    const availablePhotos = [];
-    for (let i = 0; i < 10 && availablePhotos.length < 10; i++) {
-      const photoIndex = (photosUsedInPreviousCycles + i) % photos.length;
-      availablePhotos.push(shuffledPhotos[photoIndex]);
+    // Create a deterministic but varied 10-photo cycle
+    const cyclePhotos = [];
+    for (let i = 0; i < 10; i++) {
+      const photoIndex = (cycleNumber * 7 + i) % photos.length; // Use offset to vary selection
+      cyclePhotos.push(shuffledPhotos[photoIndex]);
     }
     
-    return availablePhotos;
+    return cyclePhotos;
   }
 }
 
