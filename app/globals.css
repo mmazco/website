@@ -10,16 +10,16 @@ body {
   background-color: #ffffff;
   color: #000000;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  line-height: 1.6;
 }
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header styles */
@@ -28,6 +28,7 @@ body {
   top: 40px;
   left: 40px;
   z-index: 10;
+  max-width: 280px;
 }
 
 .photographer-name {
@@ -64,44 +65,57 @@ body {
 
 /* Photo container */
 .main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  padding: 60px 20px 40px;
+  margin-left: 320px;
 }
 
 .photo-container {
-  max-width: 60%;
-  max-height: 50vh;
+  max-width: 100%;
+  max-height: 70vh;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-container img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
+  max-height: 70vh;
 }
 
 /* Photo info */
 .photo-info {
   text-align: left;
-  max-width: 60%;
+  max-width: 100%;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 0;
+}
+
+/* Fix specific image rotations */
+.photo-container img[src*="Niavaran"] {
+  transform: rotate(90deg);
+  max-width: 70vh;
+  max-height: 100%;
 }
 
 .photo-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 0.02em;
   color: #000;
   line-height: 1.3;
 }
 
 .photo-details {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   color: #555;
   line-height: 1.4;
@@ -131,42 +145,151 @@ body {
   margin-bottom: 2px;
 }
 
-/* Desktop specific styles */
-@media (min-width: 769px) {
-  .photo-info {
-    max-width: 60%;
-    min-width: 400px;
-    margin: 0 auto;
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .header {
+    max-width: 250px;
   }
   
-  .photo-title {
-    font-size: 14px;
-    margin-bottom: 10px;
+  .main {
+    margin-left: 280px;
+    padding: 40px 20px;
   }
   
-  .photo-details {
-    font-size: 13px;
+  .photo-container {
+    max-width: 100%;
+    max-height: 65vh;
   }
 }
 
-/* Responsive design */
+/* Mobile landscape and small tablet */
 @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
   .header {
-    position: static;
-    margin-bottom: 40px;
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    padding: 20px;
     text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+  }
+  
+  .main {
+    margin-left: 0;
+    padding: 40px 20px;
+    min-height: auto;
   }
   
   .photo-container {
     max-width: 100%;
     max-height: 60vh;
+    margin-bottom: 30px;
   }
   
   .photo-info {
+    text-align: center;
     max-width: 100%;
   }
   
-  body {
-    padding: 20px;
+  .photo-title {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  
+  .photo-details {
+    font-size: 12px;
+  }
+  
+  .description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .photo-log {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  .photo-log-entry {
+    margin-bottom: 0;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .header {
+    padding: 15px;
+  }
+  
+  .main {
+    padding: 20px 15px;
+  }
+  
+  .photo-container {
+    max-width: 100%;
+    max-height: 50vh;
+    margin-bottom: 20px;
+  }
+  
+  .photographer-name {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .social-handle {
+    font-size: 11px;
+    margin-bottom: 15px;
+  }
+  
+  .description {
+    font-size: 12px;
+  }
+  
+  .photo-title {
+    font-size: 12px;
+  }
+  
+  .photo-details {
+    font-size: 11px;
+  }
+  
+  .photo-log {
+    font-size: 11px;
+    gap: 8px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .header {
+    padding: 10px;
+  }
+  
+  .main {
+    padding: 15px 10px;
+  }
+  
+  .photo-container {
+    max-width: 100%;
+    max-height: 45vh;
+  }
+  
+  .photographer-name,
+  .photo-title {
+    font-size: 11px;
+  }
+  
+  .social-handle,
+  .description,
+  .photo-details {
+    font-size: 10px;
   }
 } 

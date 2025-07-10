@@ -126,10 +126,35 @@ function getPhotosForCycle(photos: Photo[], cycleStartDate: Date, cycleNumber: n
     const shuffledPhotos = shuffleArray(photos, seed);
     
     // Create a deterministic but varied 10-photo cycle
+    // Ensure no duplicate titles within the same cycle
     const cyclePhotos = [];
-    for (let i = 0; i < 10; i++) {
-      const photoIndex = (cycleNumber * 7 + i) % photos.length; // Use offset to vary selection
-      cyclePhotos.push(shuffledPhotos[photoIndex]);
+    const usedTitles = new Set<string>();
+    let attempts = 0;
+    const maxAttempts = photos.length * 2; // Prevent infinite loops
+    
+    for (let i = 0; i < 10 && attempts < maxAttempts; i++) {
+      const photoIndex = (cycleNumber * 7 + i + attempts) % photos.length;
+      const candidatePhoto = shuffledPhotos[photoIndex];
+      
+      if (!usedTitles.has(candidatePhoto.title)) {
+        cyclePhotos.push(candidatePhoto);
+        usedTitles.add(candidatePhoto.title);
+      } else {
+        // If we hit a duplicate title, try the next photo
+        i--; // Don't increment i, try again
+        attempts++;
+      }
+    }
+    
+    // If we still don't have enough photos, fill with remaining unique titles
+    if (cyclePhotos.length < 10) {
+      for (const photo of shuffledPhotos) {
+        if (cyclePhotos.length >= 10) break;
+        if (!usedTitles.has(photo.title)) {
+          cyclePhotos.push(photo);
+          usedTitles.add(photo.title);
+        }
+      }
     }
     
     return cyclePhotos;
