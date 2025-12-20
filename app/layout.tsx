@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-  title: 'Maryam Mazraei Photography',
-  description: 'From photography archives. A photo a day.',
+  title: 'Maz - Open Memos',
+  description: 'Serial entrepreneur, product strategist, go-to-market and growth expert.',
 }
 
 export default function RootLayout({
@@ -23,7 +20,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
-} 
+}
