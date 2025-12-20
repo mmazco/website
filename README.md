@@ -1,4 +1,4 @@
-# Maryam Mazraei - Personal Portfolio
+# Personal Portfolio Website template
 
 A minimal personal portfolio website built with Next.js and TypeScript, featuring project showcases, publications, talks, and a photography archive.
 
