@@ -55,7 +55,7 @@ export default function Home() {
           <h1>Maryam Mazraei</h1>
           
           <p className="intro">
-            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and sustainability with emerging tech such as AI and blockchain. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
+            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and sustainability with emerging technologies such as AI and blockchain. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
           </p>
           
           <p>
