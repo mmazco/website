@@ -580,9 +580,10 @@ body {
     right: 15px;
   }
   
-  /* Hide bouncing characters on mobile */
+  /* Show bouncing characters on mobile (smaller size) */
   .bouncing-character {
-    display: none;
+    display: block;
+    opacity: 0.4;
   }
   
   .photography-container {
