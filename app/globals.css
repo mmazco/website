@@ -141,7 +141,7 @@ body {
 }
 
 .memos-intro {
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
 }
 
@@ -277,7 +277,7 @@ body {
 
 .memo-item a {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .memo-item .memo-description,
@@ -285,7 +285,7 @@ body {
   margin-top: 4px;
   margin-bottom: 0;
   color: #666;
-  font-size: 14px;
+  font-size: 15px;
   font-style: italic;
 }
 
@@ -550,15 +550,15 @@ body {
   }
   
   .memo-item .memo-desc {
-    font-size: 13px;
+    font-size: 15px;
   }
   
   .memo-item a {
-    font-size: 13px;
+    font-size: 15px;
   }
   
   .memos-intro {
-    font-size: 13px;
+    font-size: 15px;
   }
   
   .talks-list li {
@@ -691,15 +691,15 @@ body {
   }
   
   .memo-item .memo-desc {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .memo-item a {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .memos-intro {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .talks-list li {
