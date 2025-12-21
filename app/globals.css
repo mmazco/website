@@ -277,6 +277,7 @@ body {
 
 .memo-item a {
   font-weight: 500;
+  font-size: 14px;
 }
 
 .memo-item .memo-description,
@@ -552,6 +553,10 @@ body {
     font-size: 13px;
   }
   
+  .memo-item a {
+    font-size: 13px;
+  }
+  
   .memos-intro {
     font-size: 13px;
   }
@@ -686,6 +691,10 @@ body {
   }
   
   .memo-item .memo-desc {
+    font-size: 12px;
+  }
+  
+  .memo-item a {
     font-size: 12px;
   }
   
