@@ -5,39 +5,55 @@ import BouncingCharacter from '../components/BouncingCharacter';
 
 export default function Playground() {
   const [showHint, setShowHint] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Show hint after 10 seconds
     const timer = setTimeout(() => {
       setShowHint(true);
     }, 10000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
     <div className="playground-container">
-      {/* All unique bouncing characters - same size, different speeds */}
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 3.png" 
-        size={140} 
-        speed={1.5} 
-      />
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 4.png" 
-        size={140} 
-        speed={2} 
-      />
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 5.png" 
-        size={140} 
-        speed={1.8} 
-      />
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 6.png" 
-        size={140} 
-        speed={2.2} 
-      />
+      {/* All unique bouncing characters - same size, different speeds (hidden on mobile) */}
+      {!isMobile && (
+        <>
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 3.png" 
+            size={140} 
+            speed={1.5} 
+          />
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 4.png" 
+            size={140} 
+            speed={2} 
+          />
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 5.png" 
+            size={140} 
+            speed={1.8} 
+          />
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 6.png" 
+            size={140} 
+            speed={2.2} 
+          />
+        </>
+      )}
 
       {/* Center text */}
       <div className="center-text">
