@@ -552,6 +552,10 @@ body {
     font-size: 13px;
   }
   
+  .memos-intro {
+    font-size: 13px;
+  }
+  
   .talks-list li {
     font-size: 14px;
     margin-bottom: 8px;
@@ -682,6 +686,10 @@ body {
   }
   
   .memo-item .memo-desc {
+    font-size: 12px;
+  }
+  
+  .memos-intro {
     font-size: 12px;
   }
   

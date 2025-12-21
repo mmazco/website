@@ -6,14 +6,25 @@ import BouncingCharacter from './components/BouncingCharacter';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Check for saved preference
     const saved = localStorage.getItem('darkMode');
     if (saved === 'true') {
       setDarkMode(true);
       document.body.classList.add('dark-mode');
     }
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const toggleDarkMode = () => {
@@ -37,17 +48,21 @@ export default function Home() {
         )}
       </button>
 
-      {/* Bouncing 3D characters */}
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 3.png" 
-        size={140} 
-        speed={1.5} 
-      />
-      <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 4.png" 
-        size={140} 
-        speed={2} 
-      />
+      {/* Bouncing 3D characters - hidden on mobile */}
+      {!isMobile && (
+        <>
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 3.png" 
+            size={140} 
+            speed={1.5} 
+          />
+          <BouncingCharacter 
+            src="/images/3d-kernel-characters copy 4.png" 
+            size={140} 
+            speed={2} 
+          />
+        </>
+      )}
 
       {/* Left side - Text content (fixed) */}
       <div className="left-panel">
@@ -131,8 +146,12 @@ export default function Home() {
           </ul>
 
           <footer className="site-footer">
-            <Link href="/playground">Playground</Link>
-            <span className="footer-separator">·</span>
+            {!isMobile && (
+              <>
+                <Link href="/playground">Playground</Link>
+                <span className="footer-separator">·</span>
+              </>
+            )}
             <a href="https://github.com/mmazco/website" target="_blank" rel="noopener noreferrer">Fork website</a>
           </footer>
         </div>
