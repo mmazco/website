@@ -321,7 +321,7 @@ body {
 
 .publications-item {
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 /* Footer link */
@@ -699,11 +699,11 @@ body {
   }
   
   .memos-intro {
-    font-size: 14px;
+    font-size: 15px;
   }
   
   .talks-list li {
-    font-size: 13px;
+    font-size: 14px;
   }
   
   .right-panel {
