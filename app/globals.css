@@ -586,7 +586,7 @@ body {
     height: auto;
     min-height: auto;
     position: relative;
-    padding: 70px 25px 40px 25px;
+    padding: 80px 25px 40px 25px;
   }
   
   .left-content {
@@ -653,7 +653,7 @@ body {
   }
   
   .theme-toggle {
-    top: 55px;
+    top: 60px;
     right: 15px;
   }
   
@@ -739,7 +739,7 @@ body {
 
 @media (max-width: 480px) {
   .left-panel {
-    padding: 65px 20px 30px 20px;
+    padding: 75px 20px 30px 20px;
   }
   
   .left-content h1 {
