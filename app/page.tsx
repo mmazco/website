@@ -7,6 +7,7 @@ import BouncingCharacter from './components/BouncingCharacter';
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     // Check if mobile
@@ -24,8 +25,19 @@ export default function Home() {
       document.body.classList.add('dark-mode');
     }
 
+    // Check if banner was dismissed
+    const bannerDismissed = localStorage.getItem('bannerDismissed');
+    if (!bannerDismissed) {
+      setShowBanner(true);
+    }
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const dismissBanner = () => {
+    setShowBanner(false);
+    localStorage.setItem('bannerDismissed', 'true');
+  };
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -35,6 +47,25 @@ export default function Home() {
 
   return (
     <div className="split-container">
+      {/* Announcement Banner */}
+      {showBanner && (
+        <div className="announcement-banner">
+          <div className="announcement-content">
+            <span>
+              Stay updated with all my latest product releases and share your feedback.{' '}
+              <a href="https://airtable.com/app5kzDEWSFzFShMl/shrxGCyT94nziakde" target="_blank" rel="noopener noreferrer">
+                Sign up here
+              </a>
+            </span>
+            <button className="banner-close" onClick={dismissBanner} aria-label="Dismiss banner">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" width="16" height="16">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Dark mode toggle */}
       <button className="theme-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
         {darkMode ? (
@@ -51,16 +82,16 @@ export default function Home() {
       {/* Bouncing 3D characters - hidden on mobile */}
       {!isMobile && (
         <>
-          <BouncingCharacter 
-            src="/images/3d-kernel-characters copy 3.png" 
-            size={140} 
-            speed={1.5} 
-          />
-          <BouncingCharacter 
-            src="/images/3d-kernel-characters copy 4.png" 
-            size={140} 
-            speed={2} 
-          />
+      <BouncingCharacter 
+        src="/images/3d-kernel-characters copy 3.png" 
+        size={140} 
+        speed={1.5} 
+      />
+      <BouncingCharacter 
+        src="/images/3d-kernel-characters copy 4.png" 
+        size={140} 
+        speed={2} 
+      />
         </>
       )}
 
@@ -148,8 +179,8 @@ export default function Home() {
           <footer className="site-footer">
             {!isMobile && (
               <>
-                <Link href="/playground">Playground</Link>
-                <span className="footer-separator">·</span>
+            <Link href="/playground">Playground</Link>
+            <span className="footer-separator">·</span>
               </>
             )}
             <a href="https://github.com/mmazco/website" target="_blank" rel="noopener noreferrer">Fork website</a>
