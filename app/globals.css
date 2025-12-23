@@ -586,7 +586,7 @@ body {
     height: auto;
     min-height: auto;
     position: relative;
-    padding: 80px 25px 40px 25px;
+    padding: 82px 25px 40px 25px;
   }
   
   .left-content {
@@ -739,7 +739,7 @@ body {
 
 @media (max-width: 480px) {
   .left-panel {
-    padding: 75px 20px 30px 20px;
+    padding: 77px 20px 30px 20px;
   }
   
   .left-content h1 {
