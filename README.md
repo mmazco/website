@@ -104,12 +104,12 @@ npm run start
 
 ### Adding Photos
 
-1. Add your photos to the `public/images/` directory
+1. Add your photos to the `public/assets/photography/` directory
 2. Update the `lib/photos.ts` file with the new photo information:
 
 ```typescript
 {
-  filename: "/images/your-photo.jpg",
+  filename: "/assets/photography/your-photo.jpg",
   title: "Photo Title",
   details: "Camera and technical details"
 }
@@ -117,7 +117,7 @@ npm run start
 
 ### Adding Project Videos
 
-1. Add video files to `public/images/`
+1. Add video files to `public/assets/home-demos/`
 2. Update `app/page.tsx` to include new video in the right panel
 
 ## Customization

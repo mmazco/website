@@ -83,12 +83,12 @@ export default function Home() {
       {!isMobile && (
         <>
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 3.png" 
+        src="/assets/ui/3d-kernel-characters copy 3.png" 
         size={140} 
         speed={1.5} 
       />
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 4.png" 
+        src="/assets/ui/3d-kernel-characters copy 4.png" 
         size={140} 
         speed={2} 
       />
@@ -204,7 +204,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/aleph-compressed.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/aleph-compressed.mp4" type="video/mp4" />
             </video>
           </a>
               </div>
@@ -218,7 +218,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/mrf-compressed.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/mrf-compressed.mp4" type="video/mp4" />
             </video>
           </a>
         </div>
@@ -232,7 +232,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/world-vote-demo.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/world-vote-demo.mp4" type="video/mp4" />
             </video>
           </a>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/fuse-pool-privy-demo-190126.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/fuse-pool-privy-demo-190126.mp4" type="video/mp4" />
             </video>
           </a>
         </div>
@@ -260,7 +260,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/tensghost-demo-020226.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/tensghost-demo-020226.mp4" type="video/mp4" />
             </video>
           </a>
         </div>
@@ -274,7 +274,7 @@ export default function Home() {
               playsInline
               className="demo-video"
             >
-              <source src="/images/cm-compressed.mp4" type="video/mp4" />
+              <source src="/assets/home-demos/cm-compressed.mp4" type="video/mp4" />
             </video>
           </a>
         </div>

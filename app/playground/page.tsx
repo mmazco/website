@@ -33,22 +33,22 @@ export default function Playground() {
       {!isMobile && (
         <>
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 3.png" 
+        src="/assets/ui/3d-kernel-characters copy 3.png" 
         size={140} 
         speed={1.5} 
       />
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 4.png" 
+        src="/assets/ui/3d-kernel-characters copy 4.png" 
         size={140} 
         speed={2} 
       />
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 5.png" 
+        src="/assets/ui/3d-kernel-characters copy 5.png" 
         size={140} 
         speed={1.8} 
       />
       <BouncingCharacter 
-        src="/images/3d-kernel-characters copy 6.png" 
+        src="/assets/ui/3d-kernel-characters copy 6.png" 
         size={140} 
         speed={2.2} 
       />
