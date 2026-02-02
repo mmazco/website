@@ -32,4 +32,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts 
+next-env.d.ts
+
+# Hide sensitive assets from public repo
+public/assets/photography/
+public/assets/home-demos/*.mp4 
