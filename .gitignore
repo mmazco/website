@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Hide sensitive assets from public repo
-public/assets/photography/ 
+# public/assets/photography/ - commented out to show photography portfolio 
