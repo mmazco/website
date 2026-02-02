@@ -35,5 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Hide sensitive assets from public repo
-public/assets/photography/
-public/assets/home-demos/*.mp4 
+public/assets/photography/ 
