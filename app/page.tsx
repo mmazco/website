@@ -101,7 +101,7 @@ export default function Home() {
           <h1>Maryam Mazraei</h1>
           
           <p className="intro">
-            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—technical product and GTM specialist, serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and infrastructure utilising emerging technologies such as AI and crypto. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
+            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—technical product and GTM specialist, serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and infrastructure utilizing emerging technologies such as AI and crypto. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
           </p>
           
           <p>
@@ -134,7 +134,7 @@ export default function Home() {
             <strong>Creative projects:</strong> <Link href="/photography">Photography</Link> · <a href="https://www.youtube.com/@mindmeldpod" target="_blank" rel="noopener noreferrer">Mind Meld podcast</a> · Plastic Labs
           </p>
 
-          <h2>Open Memos</h2>
+          <h2>Open memos</h2>
           
           <p className="memos-intro">
             Open proposals, memos or concepts up for review, hack, grant funding.

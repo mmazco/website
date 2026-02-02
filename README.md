@@ -12,7 +12,7 @@ A minimal personal portfolio website built with Next.js and TypeScript, featurin
 - **Split Layout**: Fixed text panel on the left, scrollable project videos on the right
 - **Project Spotlight**: Showcasing Aleph, Media Reaction Finder, World Vote, and Crowdmuse with demo videos
 - **Dark Mode**: Toggle between light and dark themes with persistent preference
-- **Open Memos**: Open proposals and concepts for review, hack, or grant funding
+- **Open memos**: Open proposals and concepts for review, hack, or grant funding
 - **Publications**: Links to Crowdmuse Mirror and Autopsy publications
 - **Selected Talks**: Conference talks from 2019-2024
 - **Bouncing 3D Characters**: Playful animated characters floating across the page
