@@ -101,7 +101,7 @@ export default function Home() {
           <h1>Maryam Mazraei</h1>
           
           <p className="intro">
-            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and sustainability with emerging technologies such as AI and blockchain. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
+            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—technical product and GTM specialist, serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and infrastructure utilising emerging technologies such as AI and crypto. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
           </p>
           
           <p>
@@ -119,11 +119,15 @@ export default function Home() {
           </p>
           
           <p>
-            <a href="http://world.org/worldvote" target="_blank" rel="noopener noreferrer"><strong>World Vote</strong></a>, a voting mini app implementation for World Foundation in collaboration with Agora Governance and Tools For Humanity.
+            <a href="http://world.org/worldvote" target="_blank" rel="noopener noreferrer"><strong>World Vote</strong></a>, a voting mini app implementation for World Foundation in collaboration with <a href="https://www.agora.xyz/" target="_blank" rel="noopener noreferrer">Agora Governance</a> and <a href="https://www.toolsforhumanity.com/" target="_blank" rel="noopener noreferrer">Tools For Humanity</a>.
           </p>
           
           <p>
             <a href="https://www.crowdmuse.xyz/collect/genesis-artifact" target="_blank" rel="noopener noreferrer"><strong>Crowdmuse</strong></a>, decentralised (local) Amazon, onchain ecommerce with revenue splits for creators and brands selling physical products.
+          </p>
+          
+          <p>
+            <a href="https://www.getautopsy.com/" target="_blank" rel="noopener noreferrer"><strong>Autopsy</strong></a>, largest dataset on failed startups globally, creating content and analyzing failed company data for VCs, research and academia with a 10k+ community subscriber base.
           </p>
 
           <p className="creative-projects">
@@ -192,40 +196,60 @@ export default function Home() {
       {/* Right side - Visual content */}
       <div className="right-panel">
         <div className="visual-item">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="demo-video"
-          >
-            <source src="/images/aleph-compressed.mp4" type="video/mp4" />
-          </video>
+          <a href="https://x.com/mmazco/status/2001351028076405108?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/aleph-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
               </div>
         
         <div className="visual-item">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="demo-video"
-          >
-            <source src="/images/mrf-compressed.mp4" type="video/mp4" />
-          </video>
+          <a href="https://x.com/mmazco/status/1999189492973044112?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/mrf-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
         </div>
         
         <div className="visual-item">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="demo-video"
-          >
-            <source src="/images/world-vote-demo.mp4" type="video/mp4" />
-          </video>
+          <a href="https://x.com/mmazco/status/1938652037652386075?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/world-vote-demo.mp4" type="video/mp4" />
+            </video>
+          </a>
             </div>
+            
+        <div className="visual-item">
+          <a href="https://x.com/mmazco/status/2013329971167838607?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/fuse-pool-privy-demo-190126.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
             
         <div className="visual-item">
           <video 
@@ -235,8 +259,22 @@ export default function Home() {
             playsInline
             className="demo-video"
           >
-            <source src="/images/cm-compressed.mp4" type="video/mp4" />
+            <source src="/images/tensghost-demo-020226.mp4" type="video/mp4" />
           </video>
+        </div>
+            
+        <div className="visual-item">
+          <a href="https://x.com/crowdmuse/status/1674116388259090433?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/cm-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
         </div>
             </div>
     </div>

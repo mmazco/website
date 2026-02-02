@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { PHProvider } from './providers'
 
 export const metadata: Metadata = {
   title: 'mmazco portfolio',
@@ -20,7 +21,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        <PHProvider>
+          {children}
+        </PHProvider>
+      </body>
     </html>
   )
 }
