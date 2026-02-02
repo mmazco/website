@@ -127,7 +127,7 @@ export default function Home() {
           </p>
           
           <p>
-            <a href="https://www.getautopsy.com/" target="_blank" rel="noopener noreferrer"><strong>Autopsy</strong></a>, largest dataset on failed startups globally, creating content and analyzing failed company data for VCs, research and academia with a 10k+ community subscriber base.
+            <a href="https://www.getautopsy.com/" target="_blank" rel="noopener noreferrer"><strong>Autopsy</strong></a>, largest dataset on failed startups globally, analyzing failed company data for VCs, research and academia with a 10k+ community subscriber base.
           </p>
 
           <p className="creative-projects">
