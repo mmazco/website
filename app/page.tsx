@@ -252,15 +252,17 @@ export default function Home() {
         </div>
             
         <div className="visual-item">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="demo-video"
-          >
-            <source src="/images/tensghost-demo-020226.mp4" type="video/mp4" />
-          </video>
+          <a href="https://tensghost.up.railway.app/" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/images/tensghost-demo-020226.mp4" type="video/mp4" />
+            </video>
+          </a>
         </div>
             
         <div className="visual-item">
