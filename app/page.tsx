@@ -169,7 +169,7 @@ export default function Home() {
             <a href="https://medium.com/startup-autopsies" target="_blank" rel="noopener noreferrer">Autopsy Medium</a> and <a href="https://paragraph.xyz/@autopsy" target="_blank" rel="noopener noreferrer">Paragraph</a> publications on failed startups, VC and entrepreneurship, founder stories, data analysis, reports
           </p>
 
-          <h2>Selected talks</h2>
+          <h2>Selected talks and programs</h2>
           <ul className="talks-list">
             <li><a href="https://youtu.be/OcpaY65VaoA?si=GCNyBjqlDYzEoHiK" target="_blank" rel="noopener noreferrer">Failure...what we don't talk enough about</a> JAM Product Conference 2019</li>
             <li><a href="https://www.youtube.com/watch?v=PiPRBI7URpI" target="_blank" rel="noopener noreferrer">Startup Sematary</a> CreativeMornings London 2019</li>
@@ -178,7 +178,7 @@ export default function Home() {
             <li><a href="https://youtu.be/6QSoRSb44as?si=VbpmnnqC1K0UADh3" target="_blank" rel="noopener noreferrer">Consumer Crypto Needs This One Thing to Scale</a> Mainnet NYC Sept 2023</li>
             <li><a href="https://youtu.be/rasNB-z-Df8?si=dRkF2iGNBIF0Ksup" target="_blank" rel="noopener noreferrer">Consumer Goods: The Most Obvious Opportunity in Crypto</a> Base House Art Basel Miami Dec 2023</li>
             <li><a href="https://youtu.be/UUMvcBVB6W4?si=He1zCc7_L75aYFJi" target="_blank" rel="noopener noreferrer">Headless Brands and IP NFTs with Remix Rights</a> ETHDenver 2024</li>
-            <li><a href="https://x.com/mmazco/status/1994091738533621902?s=20" target="_blank" rel="noopener noreferrer">World Build Program mentorship</a> Buenos Aires, Argentina Nov 2025</li>
+            <li><a href="https://x.com/mmazco/status/1994091738533621902?s=20" target="_blank" rel="noopener noreferrer">World Build Program mentorship</a> Buenos Aires Argentina Nov 2025</li>
             <li><a href="https://cerebralvalley.ai/e/cartesia-voice-agents-hackathon" target="_blank" rel="noopener noreferrer">Cartesia x Anthropic Voice Agents Hackathon hosted by Notion</a> SF Feb 2026</li>
           </ul>
 
