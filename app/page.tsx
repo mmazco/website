@@ -119,6 +119,10 @@ export default function Home() {
           </p>
           
           <p>
+            <a href="https://mediaagents.up.railway.app/" target="_blank" rel="noopener noreferrer"><strong>Follow The Money</strong></a>, a fictional series where two voice agents investigate and discuss who owns corporate media and other related topics. Project submission for the <a href="https://x.com/mmazco/status/2021653210440904984?s=20" target="_blank" rel="noopener noreferrer">Cartesia x Anthropic Voice Agents Hackathon SF Feb 2026</a>.
+          </p>
+          
+          <p>
             <a href="http://world.org/worldvote" target="_blank" rel="noopener noreferrer"><strong>World Vote</strong></a>, a voting mini app implementation for World Foundation in collaboration with <a href="https://www.agora.xyz/" target="_blank" rel="noopener noreferrer">Agora Governance</a> and <a href="https://www.toolsforhumanity.com/" target="_blank" rel="noopener noreferrer">Tools For Humanity</a>.
           </p>
           
@@ -262,6 +266,20 @@ export default function Home() {
               className="demo-video"
             >
               <source src="/assets/home-demos/tensghost-demo-020226.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+            
+        <div className="visual-item">
+          <a href="https://x.com/mmazco/status/2021653210440904984?s=20" target="_blank" rel="noopener noreferrer">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="demo-video"
+            >
+              <source src="/assets/home-demos/mediaagents-demo.mp4" type="video/mp4" />
             </video>
           </a>
         </div>
