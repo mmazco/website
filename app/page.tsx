@@ -123,7 +123,7 @@ export default function Home() {
           </p>
           
           <p>
-            <a href="https://mediaagents.up.railway.app/" target="_blank" rel="noopener noreferrer"><strong>Follow The Money</strong></a>, a fictional series where two voice agents investigate and discuss who owns corporate media and other related topics. Project submission for the <a href="https://x.com/mmazco/status/2021653210440904984?s=20" target="_blank" rel="noopener noreferrer">Cartesia x Anthropic Voice Agents Hackathon SF Feb 2026</a>.
+            <a href="https://mediaagents.up.railway.app/" target="_blank" rel="noopener noreferrer"><strong>Follow The Money</strong></a>, a fictional series where two voice agents investigate and discuss who owns corporate media and other topics, part of <a href="https://x.com/mmazco/status/2021653210440904984?s=20" target="_blank" rel="noopener noreferrer">Cartesia x Anthropic Voice Agents Hackathon SF Feb 2026</a>.
           </p>
           
           <p>

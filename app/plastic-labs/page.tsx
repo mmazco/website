@@ -15,7 +15,13 @@ export default function PlasticLabs() {
           </a>
         </p>
         <p className="description">
-          Personal scrapbook of 3D printing prototypes and experimenting with image generation models to create variations of my photography and creative work.
+          Personal scrapbook of 3D printing prototypes and experimenting with image models to create variations of my photography and creative work.
+        </p>
+        <p className="description" style={{ marginTop: '20px' }}>
+          <strong>Toolkit:</strong><br />
+          <a href="https://daisy.so/" target="_blank" rel="noopener noreferrer">Daisy</a> image + video gen<br />
+          Sovol Sv06 ACE 3D printer<br />
+          <a href="https://github.com/OrcaSlicer" target="_blank" rel="noopener noreferrer">Orca Slicer</a>
         </p>
       </header>
       
@@ -24,7 +30,7 @@ export default function PlasticLabs() {
         <div className="plastic-labs-grid-2x2">
           <div className="plastic-labs-grid-item">
             <Image
-              src="/assets/home-demos/zaha-issey-4.jpg"
+              src="/assets/plastic-labs/zaha-issey-4.jpg"
               alt="zaha issey 4"
               width={600}
               height={450}
@@ -37,7 +43,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-grid-item">
             <Image
-              src="/assets/home-demos/zaha-issey-5.jpg"
+              src="/assets/plastic-labs/zaha-issey-5.jpg"
               alt="zaha issey 5"
               width={600}
               height={450}
@@ -50,7 +56,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-grid-item">
             <Image
-              src="/assets/home-demos/zaha-issey-6.jpg"
+              src="/assets/plastic-labs/zaha-issey-6.jpg"
               alt="zaha issey 6"
               width={600}
               height={450}
@@ -63,7 +69,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-grid-item">
             <Image
-              src="/assets/home-demos/zaha-issey-7.jpg"
+              src="/assets/plastic-labs/zaha-issey-7.jpg"
               alt="zaha issey 7"
               width={600}
               height={450}
@@ -79,7 +85,7 @@ export default function PlasticLabs() {
 
         <div className="plastic-labs-grid-2x2" style={{ gridTemplateColumns: '1fr' }}>
           <Image
-            src="/assets/home-demos/zaha-issey-3.3.JPG"
+            src="/assets/plastic-labs/zaha-issey-3.3.JPG"
             alt="zaha issey"
             width={800}
             height={600}
@@ -99,7 +105,7 @@ export default function PlasticLabs() {
             playsInline
             className="plastic-labs-video"
           >
-            <source src="/assets/home-demos/zaha-issey-1.mp4" type="video/mp4" />
+            <source src="/assets/plastic-labs/zaha-issey-1.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -107,7 +113,7 @@ export default function PlasticLabs() {
         <div className="plastic-labs-row">
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-3d-1.JPG"
+              src="/assets/plastic-labs/liquid-3d-1.JPG"
               alt="prototype"
               width={400}
               height={300}
@@ -121,7 +127,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-3d-2.png"
+              src="/assets/plastic-labs/liquid-3d-2.png"
               alt="prototype modification pink"
               width={400}
               height={300}
@@ -135,7 +141,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-3d-3.png"
+              src="/assets/plastic-labs/liquid-3d-3.png"
               alt="prototype modification transparent"
               width={400}
               height={300}
@@ -157,14 +163,14 @@ export default function PlasticLabs() {
             playsInline
             className="plastic-labs-video"
           >
-            <source src="/assets/home-demos/liquid-3d-vid.mp4" type="video/mp4" />
+            <source src="/assets/plastic-labs/liquid-3d-vid.mp4" type="video/mp4" />
           </video>
         </div>
 
         <div className="plastic-labs-row">
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-wave-3d-1.JPG"
+              src="/assets/plastic-labs/liquid-wave-3d-1.JPG"
               alt="physical 3d printed prototype"
               width={400}
               height={300}
@@ -178,7 +184,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-wave-3d-2.png"
+              src="/assets/plastic-labs/liquid-wave-3d-2.png"
               alt="prototype modification transparent"
               width={400}
               height={300}
@@ -192,7 +198,7 @@ export default function PlasticLabs() {
           </div>
           <div className="plastic-labs-row-item">
             <Image
-              src="/assets/home-demos/liquid-wave-3d-3.png"
+              src="/assets/plastic-labs/liquid-wave-3d-3.png"
               alt="prototype modification shimmer"
               width={400}
               height={300}
@@ -208,7 +214,7 @@ export default function PlasticLabs() {
 
         <div className="plastic-labs-video-item" style={{ width: '35%', alignSelf: 'center', marginLeft: 'auto', marginRight: '12.5%' }}>
           <Image
-            src="/assets/home-demos/maz.JPG"
+            src="/assets/plastic-labs/maz.JPG"
             alt="Maz"
             width={800}
             height={600}
