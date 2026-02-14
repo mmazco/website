@@ -101,7 +101,11 @@ export default function Home() {
           <h1>Maryam Mazraei</h1>
           
           <p className="intro">
-            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—technical product and GTM specialist, serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and infrastructure utilizing emerging technologies such as AI and crypto. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
+            Hi! I'm <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">Maz</a>—from London, UK and have lived in Budapest, Berlin and Lisbon, now reside in Los Angeles.
+          </p>
+          
+          <p>
+            I like to build things! I'm a technical product and GTM specialist, serial entrepreneur, former VC, and creative hobbyist. I've spent 10+ years building products across consumer, open source, and infrastructure utilizing emerging technologies such as AI and crypto. Find me on <a href="https://x.com/mmazco" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/in/maryam-mazraei/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://github.com/mmazco" target="_blank" rel="noopener noreferrer">Github</a>.
           </p>
           
           <p>
@@ -135,7 +139,7 @@ export default function Home() {
           </p>
 
           <p className="creative-projects">
-            <strong>Creative projects:</strong> <Link href="/photography">Photography</Link> · <a href="https://www.youtube.com/@mindmeldpod" target="_blank" rel="noopener noreferrer">Mind Meld podcast</a> · Plastic Labs
+            <strong>Creative projects:</strong> <Link href="/photography">Photography</Link> · <a href="https://www.youtube.com/@mindmeldpod" target="_blank" rel="noopener noreferrer">Mind Meld podcast</a> · <Link href="/plastic-labs">Plastic Labs</Link>
           </p>
 
           <h2>Open memos</h2>

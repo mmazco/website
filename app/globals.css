@@ -559,6 +559,104 @@ body {
 }
 
 /* ==================== */
+/* PLASTIC LABS PAGE STYLES */
+/* ==================== */
+
+.plastic-labs-container {
+  width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.plastic-labs-header-image {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.plastic-labs-emoji {
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.plastic-labs-header-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.plastic-labs-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 100px 20px 40px 20px;
+  margin-left: 320px;
+  gap: 60px;
+}
+
+.plastic-labs-item {
+  max-width: 100%;
+  width: 100%;
+}
+
+.plastic-labs-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.plastic-labs-row {
+  display: flex;
+  gap: 12px;
+  width: 75%;
+  align-self: center;
+}
+
+.plastic-labs-row-item {
+  flex: 1;
+}
+
+.plastic-labs-row-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.plastic-labs-video-item {
+  width: 50%;
+}
+
+.plastic-labs-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.plastic-labs-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 75%;
+  align-self: center;
+}
+
+.plastic-labs-grid-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.plastic-labs-caption {
+  font-size: 13px;
+  font-weight: 300;
+  color: #000;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* ==================== */
 /* RESPONSIVE STYLES */
 /* ==================== */
 
@@ -663,8 +761,20 @@ body {
     opacity: 0.4;
   }
   
-  .photography-container {
+  .photography-container,
+  .plastic-labs-container {
     flex-direction: column;
+  }
+
+  .plastic-labs-main {
+    margin-left: 0;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .plastic-labs-row {
+    flex-direction: column;
+    gap: 20px;
   }
   
   .photography-header {
@@ -783,6 +893,10 @@ body {
   }
   
   .photography-main {
+    padding: 20px 15px;
+  }
+
+  .plastic-labs-main {
     padding: 20px 15px;
   }
   
