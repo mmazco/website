@@ -196,6 +196,54 @@ body {
   color: #f0f0f0;
 }
 
+.dark-mode .photography-header {
+  background-color: #0a0a0f;
+}
+
+.dark-mode .photographer-name {
+  color: #f0f0f0;
+}
+
+.dark-mode .social-handle a {
+  color: rgb(234, 51, 196);
+}
+
+.dark-mode .description {
+  color: #a0a0a8;
+}
+
+.dark-mode .description a {
+  color: #f0f0f0;
+}
+
+.dark-mode .description a:hover {
+  color: #a0a0a8;
+}
+
+.dark-mode .back-link {
+  color: #a0a0a8;
+}
+
+.dark-mode .back-link:hover {
+  color: #f0f0f0;
+}
+
+.dark-mode .plastic-labs-container {
+  background-color: #0a0a0f;
+}
+
+.dark-mode .plastic-labs-caption {
+  color: #a0a0a8;
+}
+
+.dark-mode .photo-title {
+  color: #f0f0f0;
+}
+
+.dark-mode .photo-details {
+  color: #a0a0a8;
+}
+
 .visual-item {
   width: 100%;
   max-width: 450px;
