@@ -171,7 +171,7 @@ export default function Home() {
 
           <h2>Publications</h2>
           <p className="publications-item">
-            <a href="https://mirror.xyz/crowdmuse.eth" target="_blank" rel="noopener noreferrer">Crowdmuse Mirror</a> publication on social commerce, IP composability, decentralized supply chains
+            <a href="https://paragraph.com/@crowdmuse" target="_blank" rel="noopener noreferrer">Crowdmuse Mirror</a> publication on social commerce, IP composability, decentralized supply chains
           </p>
           <p className="publications-item">
             <a href="https://medium.com/startup-autopsies" target="_blank" rel="noopener noreferrer">Autopsy Medium</a> and <a href="https://paragraph.xyz/@autopsy" target="_blank" rel="noopener noreferrer">Paragraph</a> publications on failed startups, VC and entrepreneurship, founder stories, data analysis, reports
