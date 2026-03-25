@@ -131,7 +131,7 @@ export default function Home() {
           </p>
           
           <p>
-            <a href="https://www.crowdmuse.xyz/collect/genesis-artifact" target="_blank" rel="noopener noreferrer"><strong>Crowdmuse</strong></a>, decentralised (local) Amazon, onchain ecommerce with revenue splits for creators and brands selling physical products.
+            <a href="https://paragraph.com/@crowdmuse" target="_blank" rel="noopener noreferrer"><strong>Crowdmuse</strong></a>, decentralised (local) Amazon, onchain ecommerce with revenue splits for creators and brands selling physical products.
           </p>
           
           <p>
