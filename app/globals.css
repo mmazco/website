@@ -287,6 +287,17 @@ body {
   color: #f0f0f0;
 }
 
+.footer-avatar-wrapper {
+  margin-bottom: 16px;
+}
+
+.footer-avatar {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
 .footer-separator {
   margin: 0 10px;
   color: #ccc;

@@ -191,6 +191,13 @@ export default function Home() {
           </ul>
 
           <footer className="site-footer">
+            <div className="footer-avatar-wrapper">
+              <img
+                src="/assets/favicons/Animorph Painting 4- Sorayamaphael, MSCHF (2025) remix.jpeg"
+                alt="Animorph Painting 4 - Sorayamaphael, MSCHF (2025) remix"
+                className="footer-avatar"
+              />
+            </div>
             {!isMobile && (
               <>
             <Link href="/playground">Playground</Link>
@@ -233,11 +240,39 @@ export default function Home() {
         </div>
         
         <div className="visual-item">
+          <a href="https://x.com/mmazco/status/2057144447142654303?s=20" target="_blank" rel="noopener noreferrer">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="demo-video"
+            >
+              <source src="/assets/home-demos/aida4la-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+
+        <div className="visual-item">
+          <a href="https://x.com/mmazco/status/2057144449369882812?s=20" target="_blank" rel="noopener noreferrer">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="demo-video"
+            >
+              <source src="/assets/home-demos/aida4la-mob-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+
+        <div className="visual-item">
           <a href="https://x.com/mmazco/status/1938652037652386075?s=20" target="_blank" rel="noopener noreferrer">
-            <video 
-              autoPlay 
-              loop 
-              muted 
+            <video
+              autoPlay
+              loop
+              muted
               playsInline
               className="demo-video"
             >
@@ -245,7 +280,21 @@ export default function Home() {
             </video>
           </a>
             </div>
-            
+
+        <div className="visual-item">
+          <a href="https://x.com/mmazco/status/2059312996476948957?s=20" target="_blank" rel="noopener noreferrer">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="demo-video"
+            >
+              <source src="/assets/home-demos/drips-issues-reviewer-compressed.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+
         <div className="visual-item">
           <a href="https://x.com/mmazco/status/2013329971167838607?s=20" target="_blank" rel="noopener noreferrer">
             <video 
